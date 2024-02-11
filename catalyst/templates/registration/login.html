@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <title>Catalyst Media</title>
+        <style>
+            body {
+                background-color: #CADCFC;
+            }
+            .btn-primary {
+                background-color: #00246B;
+                border-color: #00246B;
+            }
+            .btn-primary:hover {
+                background-color: #001a4f;
+                border-color: #001a4f;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+            <div class="text-center">
+            <h1>Catalyst Login</h1>
+                <form action='/index' method='post'>
+                    <!-- csrf token is used fro security purpose -->
+                    {% csrf_token %}
+                    <p>Please enter your credentail to login.</p>
+                    <br>
+                    {{ form.as_p }}
+                    <!---<div class="form-group">
+                        <br>
+                        <p>Please enter your credentail to login.</p>
+                        <input type="text" id="user_name" required name="user_name" placeholder="UserName" value={{ user_name }}><br>
+                        <br>
+                        <input type="password" id="pass1" required name="pass1" placeholder="Password" value={{ pass1 }}><br>
+                    </div>-->
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

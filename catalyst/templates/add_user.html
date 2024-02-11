@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h2>Adding Users</h2>
+<form action='/add_user' method='post'>
+    <!-- csrf token is used fro security purpose -->
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="user_name">User Name</label><br>
+        <input type="text" id="user_name" required name="user_name" placeholder="Username" value={{ user_name }}><br>
+
+        <label for="first_name">First Name</label><br>
+        <input type="text" id="first_name" required name="first_name" placeholder="First Name" value={{ first_name }}><br>
+
+        <label for="last_name">Last Name</label><br>
+        <input type="text" id="last_name" required name="last_name" placeholder="Last Name" value= {{ last_name }}><br>
+
+        <label for="email">Email</label><br>
+        <input type="email" id="email" required name="email" placeholder="Email Address" value= {{ email }}><br>
+
+        <label for="pass1">Password</label><br>
+        <input type="password" id="pass1" required name="pass1" placeholder="Password" value= {{ pass1 }}><br>
+
+        <label for="pass2">Confirm Password</label><br>
+        <input type="password" id="pass2" required name="pass2" placeholder="Confirm Password" value= {{ pass2 }}><br>
+
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2 margin-left= '35px;'>Upload Data</h2>
+    <!-- upload filed and submit buttons comes here. -->
+    <form method="post" action="{% url 'upload_chunked' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="file" required>
+        <button class="btn btn-primary"  role="button" type="submit">Upload</button>
+    </form>
+    
+{% endblock %}

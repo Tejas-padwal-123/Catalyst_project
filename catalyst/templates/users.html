@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+{% block content %}
+     
+    <!--<h2>Users</h2>-->
+    <!-- templates/user_list.html -->
+    <style>
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .user-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px; /* Adjust the margin as needed */
+        }
+    </style>
+    <div class="header-container">
+        <h2>Users</h2>
+        <a class="btn btn-primary" href="/add_user">Add Users</a>
+    </div>
+    <ul>
+        {% for user in user_list %}
+            <li class='user-info'>
+                {{user.username}}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  
+                {{user.email}}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                {% if user.is_active %} 
+                    Active 
+                {% else %}
+                    Inactive 
+                {% endif %}       
+                <a class="btn btn-primary" href="{% url 'delete_user' id=user.id %}">Delete</a>
+            </li> 
+            <hr>
+        {% endfor %}
+    </ul>
+    <!-- Your dashboard content goes here -->
+{% endblock %}
